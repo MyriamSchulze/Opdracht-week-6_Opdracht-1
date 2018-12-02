@@ -1,0 +1,97 @@
+/*Algemeen: ik dacht de theorie te begrijpen, maar toepassen is veel moeilijker. 
+Uiteindelijk wel een aantal dingen met flexbox opgelost, maar ook wel wat
+uitlijn-dingen met margins en zo gedaan. Kan handiger/beter m.b.v. flexbox 
+denk ik. Zie hieronder nog een paar specifieke opmerkingen.
+De inspect-functie was verder erg nuttig om inzicht te krijgen 
+*/
+body {
+    font-family: Open Sans, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    background-color: teal;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-name {
+    font-size: 24px;
+    margin-left: 4rem;
+}
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-right: 3rem;
+}
+.navigation-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0px;
+/*ik zie dat 'padding-left: 0px' helpt om een padding van 40px links te verwijderen, alleen heb ik nog niet ontdekt waar die padding vandaan komt*/
+ }
+ li {
+    list-style-type: none;
+ 
+}
+/*ik wilde rondom de navigatielinkjes links en rechts wat ruimte geven. Heb het geprobeerd met een 'space-around' op de flex-container navigation-list, maar dat werkte niet. nu dus met padding opgelost, maar is vast niet optimaal*/
+.nav-link {
+    text-decoration:none;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.mid-section {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    /*ik begrijp niet waarom de main-content onder de footer doorloopt als je naar beneden scrollt, en de sidebars stoppen bij de footer*/
+}
+.main-content {
+   order: 0;
+   font-family: 'Times New Roman', Times, serif;
+   background-color: white;
+   padding: 1rem 2rem;
+}
+.main-title {
+    margin: 20px 0px;
+}
+    .sidebar {
+        background-color: beige;
+        padding: 1rem 1rem;
+     /*ik wilde onderstaand stukje code gebruiken om de sidebar-title en sidebar-image uit te lijnen aan de linkerkant, maar dit werkte niet. Daarom opgelost met margin op image-title en image
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; */
+ }
+.sidebar-title {
+    font-size: 16px;
+    margin: 1rem 3rem;
+}
+.sidebar-image {
+    margin-left: 3rem;
+}
+.sidebar-left {
+    order: -1;
+}
+.sidebar-right {
+    order: 1;
+}
+[src="https://placekitten.com/350/500"] {
+    width: 10rem;
+}
+[src="https://placekitten.com/700/1000"] {
+    width: 10rem;
+}
+/*ik probeerde de foto's een breedte te geven m.b.v. de class sidebar-image, maar dat lukte niet. Maar zoiets lijkt me toch beter dan voor elke sidebar de afzonderlijke images te moeten targeten, weet alleen niet hoe */
+.footer {
+    background-color: brown;
+    color: white;
+    display: flex;
+    justify-content: center;
+}

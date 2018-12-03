@@ -4,6 +4,7 @@ uitlijn-dingen met margins en zo gedaan. Kan handiger/beter m.b.v. flexbox
 denk ik. Zie hieronder nog een paar specifieke opmerkingen.
 De inspect-functie was verder erg nuttig om inzicht te krijgen 
 */
+
 body {
     font-family: Open Sans, sans-serif;
     font-size: 16px;
@@ -48,45 +49,48 @@ body {
 }
 .mid-section {
     display: flex;
-    flex-direction: row;
-    height: 100vh;
-    /*ik begrijp niet waarom de main-content onder de footer doorloopt als je naar beneden scrollt, en de sidebars stoppen bij de footer*/
+    flex-direction: row; 
 }
 .main-content {
    order: 0;
    font-family: 'Times New Roman', Times, serif;
    background-color: white;
    padding: 1rem 2rem;
+   flex: 4;
 }
 .main-title {
     margin: 20px 0px;
 }
-    .sidebar {
-        background-color: beige;
-        padding: 1rem 1rem;
-     /*ik wilde onderstaand stukje code gebruiken om de sidebar-title en sidebar-image uit te lijnen aan de linkerkant, maar dit werkte niet. Daarom opgelost met margin op image-title en image
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; */
+.sidebar {
+    background-color: beige;
+    padding: 1rem 1rem;
+    flex: 1;
+     /*ik wilde onderstaand stukje code gebruiken om de sidebar-title en sidebar-image uit te lijnen aan de linkerkant, maar dit werkte niet. Daarom opgelost met margin op sidebar-title en image
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start; */
  }
 .sidebar-title {
     font-size: 16px;
     margin: 1rem 3rem;
 }
 .sidebar-image {
-    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
 }
 .sidebar-left {
     order: -1;
 }
+[src="https://placekitten.com/350/500"] {
+    flex: 1 2rem;
+    max-width: 10rem;
+}
 .sidebar-right {
     order: 1;
 }
-[src="https://placekitten.com/350/500"] {
-    width: 10rem;
-}
 [src="https://placekitten.com/700/1000"] {
-    width: 10rem;
+    flex: 1 2 rem;
+    max-width: 10rem;
 }
 /*ik probeerde de foto's een breedte te geven m.b.v. de class sidebar-image, maar dat lukte niet. Maar zoiets lijkt me toch beter dan voor elke sidebar de afzonderlijke images te moeten targeten, weet alleen niet hoe */
 .footer {

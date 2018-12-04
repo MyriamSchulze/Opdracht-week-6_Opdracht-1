@@ -1,16 +1,10 @@
-/*Algemeen: ik dacht de theorie te begrijpen, maar toepassen is veel moeilijker. 
-Uiteindelijk wel een aantal dingen met flexbox opgelost, maar ook wel wat
-uitlijn-dingen met margins en zo gedaan. Kan handiger/beter m.b.v. flexbox 
-denk ik. Zie hieronder nog een paar specifieke opmerkingen.
-De inspect-functie was verder erg nuttig om inzicht te krijgen 
-*/
-
 body {
     font-family: Open Sans, sans-serif;
     font-size: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 .header {
     background-color: teal;
@@ -22,30 +16,28 @@ body {
 }
 .site-name {
     font-size: 24px;
-    margin-left: 4rem;
+    padding-left: 1rem;
 }
 .navigation {
     display: flex;
     justify-content: center;
-    margin-right: 3rem;
 }
 .navigation-list {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 0px;
-/*ik zie dat 'padding-left: 0px' helpt om een padding van 40px links te verwijderen, alleen heb ik nog niet ontdekt waar die padding vandaan komt*/
+    padding: 0 1rem 0 0;
  }
  li {
     list-style-type: none;
  
 }
-/*ik wilde rondom de navigatielinkjes links en rechts wat ruimte geven. Heb het geprobeerd met een 'space-around' op de flex-container navigation-list, maar dat werkte niet. nu dus met padding opgelost, maar is vast niet optimaal*/
 .nav-link {
     text-decoration:none;
     color: white;
     padding-left: 5px;
     padding-right: 5px;
+    /*Ik heb bovenstaande padding nog even laten staan, want ik begrijp nog steeds niet hoe ik de flex-container m.b.v. flex-grow groter kan maken (welke flex-container moet ik dan pakken, ik denk nog steeds navigation-list? Daarom lukt ruimte om de linkjes met justify-content: space-around nog steeds niet  */
 }
 .mid-section {
     display: flex;
@@ -64,17 +56,18 @@ body {
 .sidebar {
     background-color: beige;
     padding: 1rem 1rem;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
     flex: 1;
-     /*ik wilde onderstaand stukje code gebruiken om de sidebar-title en sidebar-image uit te lijnen aan de linkerkant, maar dit werkte niet. Daarom opgelost met margin op sidebar-title en image
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start; */
  }
-.sidebar-title {
-    font-size: 16px;
-    margin: 1rem 3rem;
+h2.sidebar-title {
+    font-size: 1rem;
+    align-self: flex-start;
 }
-.sidebar-image {
+figure.sidebar-image {
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -82,17 +75,14 @@ body {
     order: -1;
 }
 [src="https://placekitten.com/350/500"] {
-    flex: 1 2rem;
-    max-width: 10rem;
+    max-width: 100%;
 }
 .sidebar-right {
     order: 1;
 }
 [src="https://placekitten.com/700/1000"] {
-    flex: 1 2 rem;
-    max-width: 10rem;
+    max-width: 100%;
 }
-/*ik probeerde de foto's een breedte te geven m.b.v. de class sidebar-image, maar dat lukte niet. Maar zoiets lijkt me toch beter dan voor elke sidebar de afzonderlijke images te moeten targeten, weet alleen niet hoe */
 .footer {
     background-color: brown;
     color: white;
